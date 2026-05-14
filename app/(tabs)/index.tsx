@@ -1,6 +1,8 @@
+import { useRouter } from 'expo-router';
 import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, Image } from 'react-native';
 
 export default function WelcomeScreen() {
+  const router = useRouter();
   return (
     <ImageBackground
       source={require('@/assets/images/oau health center.jpg')}
@@ -18,11 +20,11 @@ export default function WelcomeScreen() {
         </View>
 
         <View style={styles.buttonArea}>
-          <TouchableOpacity style={styles.studentButton}>
+          <TouchableOpacity style={styles.studentButton} onPress={() => router.push('/student-login')}>
             <Text style={styles.studentButtonText}>Student</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.doctorButton}>
+          <TouchableOpacity style={styles.doctorButton} onPress={() => router.push('/doctor-login')}>
             <Text style={styles.doctorButtonText}>Doctor</Text>
           </TouchableOpacity>
         </View>
